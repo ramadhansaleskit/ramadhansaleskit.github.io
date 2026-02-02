@@ -303,17 +303,26 @@
     .footer {
       font-size: 0.95rem;
       color: #374151;
-      display: flex;
-      justify-content: space-between;
+      margin-top: 2rem;
     }
     .footer p a {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       gap: 10px;
       color: var(--dark);
       text-decoration: none;
     }
+
+/* Pengaturan Layar di atas 650px */
+@media (min-width: 650px) {
+    .footer {
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer p a {
+      justify-content: space-between;
+    }
+}
 
     .highlight, .highlight a {
       font-weight: 600;
