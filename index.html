@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramadhan Sales Booster Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=PT+Serif:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1f8a70;
+      --primary-green: #00382b;
+      --primary-gold: #f4c430;
+      --secondary: #f3f7f5;
+      --dark: #1c1c1c;
+      --muted: #6b7280;
+      --somuted: #d4d8e1;
+      --accent: #fde68a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Lato", Roboto, Arial, sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: #fffaf2;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.3;
+      font-family: 'PT Serif', serif;
+    }
+    h1 span, h2 span, h3 span {
+      /*font-family: 'Great Vibes', serif;*/
+      font-size: 1.3em;
+      color: #fefce8;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 48px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .hero {
+      background: var(--primary-green);
+      border-bottom: 7px solid var(--primary-gold);
+      padding: 2rem 0;
+      color: antiquewhite;
+    }
+    .hero h1 {
+      color: var(--primary-gold);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      /*color: #374151;*/
+    }
+    .hero p.featured {
+      color: #faebcd;
+      background-color: #07251e;
+      padding: 0.5rem 1rem;
+      font-size: 1.2em;
+    }
+
+/* Pengaturan Layar di atas 680px */
+@media (min-width: 514px) {
+    .container .text{
+      width: 450px;
+    }
+}
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #78350f;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .section-muted {
+      background: var(--secondary);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      background: #ffffff;
+    }
+
+    .price-boxes {
+      display: flex;
+      flex-wrap: wrap; /* Izinkan elemen turun ke bawah */
+      gap: 10px;       /* Jarak antar box */    
+    }
+    .price-box {
+      flex: 1 1 100%;  /* Default: lebar 100% */
+      box-sizing: border-box; /* Memastikan padding tidak merusak lebar */
+      border: 2px solid var(--somuted);
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 16px;
+      background: #e6e6e6;
+    }
+    .price-box.active {
+      border: 2px solid var(--primary);
+      background: #f0fdf9;
+    }
+/* Pengaturan Layar di atas 680px */
+@media (min-width: 681px) {
+  .price-box {
+    /* Kalkulasi: (100% / 3) minus penyesuaian gap agar pas satu baris */
+    flex: 0 0 calc(33.333% - (20px / 3)); 
+  }
+}
+    .price-box h3 {
+      margin-top: 0;
+      color: var(--muted);
+    }
+    .price-box.active h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 8px 0;
+      color: var(--muted);
+    }
+
+    .price-box.active .price {
+      color: var(--dark);
+    }
+
+    .cta {
+      display: block;
+      text-align: center;
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-top: 24px;
+    }
+
+    .cta:hover {
+      opacity: 0.9;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 48px 0;
+    }
+
+    .footer {
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="text">
+        <img src="logo.jpg" alt="Ramadhan Sales Kit Logo" class="logo-img" style="width:200px;">
+        <!-- <span class="badge">Ramadhan Sales [Booster] Kit</span> -->
+        <!-- <img src="icons.pNg" alt="Ramadhan Sales Kit Logo" class="hero-icons" style="width:stretch;"> -->
+        <h1><span>Untung Melimpah</span> di Bulan Penuh Berkah</h1>
+        <p class="featured">Template desain + copywriting + kalender konten</p>
+        <p>Aset jualan siap pakai untuk UMKM di bulan suci. Biar fokus jualan, bukan mikir konten.</p>
+
+        <a id="waButton1" class="cta" href="https://wa.me/6282180454593?text=Assalamu%27alaikum.%20Saya%20mau%20Ramadhan%20Sales%20Booster%20Kit." target="_blank">
+          💬 Chat WhatsApp Sekarang
+        </a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="container">
+    <h2>❓ Masalah yang Sering Terjadi di Ramadhan</h2>
+    <ul>
+      <li>Bingung mau posting apa tiap hari selama Ramadhan</li>
+      <li>Sibuk produksi & packing, gak sempat desain konten</li>
+      <li>Mau promo tapi kehabisan ide kata-kata</li>
+      <li>Baru sadar butuh konten pas Ramadhan sudah jalan</li>
+    </ul>
+    <p class="highlight">Kalau salah satu pernah kamu rasakan, produk ini dibuat buat kamu.</p>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="container section-muted">
+    <h2>✨ Solusinya</h2>
+    <p><strong>Ramadhan Sales Booster Kit</strong> adalah kumpulan aset digital yang membantu UMKM <strong>langsung jualan selama Ramadhan</strong>.</p>
+    <p>Cara pakainya simpel:</p>
+    <ul>
+      <li>Ganti logo</li>
+      <li>Ganti foto produk</li>
+      <li>Posting</li>
+    </ul>
+    <p><strong>Tanpa skill desain. Tanpa mikir dari nol.</strong></p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="container">
+    <h2>📦 Isi Produk</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>30–50 Template Canva Ramadhan</h3>
+        <p>Feed & Story. Tinggal edit, sesuaikan brand, lalu posting.</p>
+      </div>
+
+      <div class="card">
+        <h3>15 Copywriting Siap Pakai</h3>
+        <p>Untuk WhatsApp broadcast & caption media sosial.</p>
+      </div>
+
+      <div class="card">
+        <h3>Kalender Konten 30 Hari</h3>
+        <p>Tahu harus posting apa dari awal sampai akhir Ramadhan.</p>
+      </div>
+    </div>
+
+    <div class="section-muted">
+      <h3>🎁 Bonus</h3>
+      <ul>
+        <li>Script Live Shopping Ramadhan</li>
+        <li>Prompt AI untuk Balas Chat & Komplain</li>
+      </ul>
+      <p class="note">Konten akan ditambahkan bertahap sebelum Ramadhan.</p>
+    </div>
+  </section>
+
+  <!-- TARGET -->
+  <section class="container">
+    <h2>👥 Cocok untuk Siapa?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>✅ Cocok</h3>
+        <ul>
+          <li>UMKM online (IG & WhatsApp)</li>
+          <li>Penjual makanan, kue, hampers</li>
+          <li>Reseller & dropshipper</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>❌ Tidak Cocok</h3>
+        <ul>
+          <li>Tidak jualan online</li>
+          <li>Tidak niat posting sama sekali</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="container">
+    <h2>💰 Harga & Akses</h2>
+
+    <div class="price-boxes">
+      <div class="price-box" id="early">
+        <h3>Early Access</h3>
+        <div class="price">Rp 199.000</div>
+        <p>(2–5 Februari)</p>
+      </div>
+
+      <div class="price-box" id="main">
+        <h3>Main Access</h3>
+        <div class="price">Rp 299.000</div>
+        <p>(6–12 Februari)</p>
+      </div>
+
+      <div class="price-box" id="last">
+        <h3>Last Call</h3>
+        <div class="price">Rp 349.000</div>
+        <p>(13–17 Februari)</p>
+      </div>
+    </div>
+
+    <p class="note">Satu kali bayar • Akses digital • Harga naik otomatis</p>
+
+    <a id="waButton2" class="cta" href="https://wa.me/6282180454593?text=Assalamu%27alaikum.%20Saya%20mau%20beli%20Ramadhan%20Sales%20Booster%20Kit." target="_blank">
+      🟢 Pesan via WhatsApp
+    </a>
+  </section>
+
+  <!-- AFFILIATE -->
+  <section class="container section-muted">
+    <h2>🤝 Program Affiliate</h2>
+    <p>Punya audience UMKM?</p>
+    <ul>
+      <li>Komisi <strong>Rp 100.000 / penjualan</strong></li>
+      <li>Tinggal share link</li>
+      <li>Materi promosi disediakan</li>
+    </ul>
+    <p class="highlight">Hubungi kami dengan pesan: <strong>KERJASAMA</strong></p>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="container footer">
+    <div class="divider"></div>
+    <p><strong>Saya Abu Maryam.</strong></p>
+    <p>
+      Desainer profesional yang fokus pada sistem kerja, kejelasan, dan dampak nyata.
+      Kit ini disusun sebagai alat bantu praktis agar jualan Ramadhan tetap terarah
+      tanpa mengorbankan ritme ibadah.
+    </p>
+    <p>
+      Bukan janji instan. Tapi sistem rapi yang bisa langsung dipakai.
+    </p>
+  </section>
+
+
+  <!-- FOOTER -->
+  <section class="container footer">
+    <div class="note">
+      *Link wa mencatat sumber referensi untuk keperluan evaluasi partner.
+    </div>
+  </section>
+
+
+
+  <script>
+    // === Affiliate Tracking Logic ===
+
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref") || "utama";
+
+    // simpan referensi pertama (last-click bisa diubah jika mau)
+    if (!localStorage.getItem("affiliate_ref")) {
+      localStorage.setItem("affiliate_ref", ref);
+    }
+
+    const storedRef = localStorage.getItem("affiliate_ref");
+
+    // Optional: hit counter sederhana
+    const key = `hit_${storedRef}`;
+    const hits = Number(localStorage.getItem(key) || 0) + 1;
+    localStorage.setItem(key, hits);
+
+    // WhatsApp Message
+    const waNumber = "6282180454593"; // GANTI NOMOR
+    const message = `Halo, saya mau Ramadhan Sales Booster Kit. ref: ${storedRef}`;
+
+    const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+    // document.getElementById("waButton").href = waLink;
+    document.getElementById("waButton1").href = waLink;
+    document.getElementById("waButton2").href = waLink;
+
+    console.log("Affiliate:", storedRef, "| Hits:", hits);
+
+
+    // Ambil tanggal hari ini
+    const now = new Date();
+    const year = now.getFullYear(); // Mendapatkan tahun saat ini (misal 2026)
+
+    // Fungsi untuk membuat objek tanggal berdasarkan hari dan bulan
+    // Note: Bulan di JS dimulai dari 0 (Januari = 0, Februari = 1)
+    function createDate(day) {
+      return new Date(year, 1, day); // Angka 1 adalah bulan Februari
+    }
+
+    const boxes = document.querySelectorAll('.price-box');
+
+    // Hapus semua class active terlebih dahulu sebagai reset
+    boxes.forEach(box => box.classList.remove('active'));
+
+    // Logika penentuan masa aktif
+    if (now >= createDate(2) && now < createDate(6)) {
+      // 2 - 5 Feb (berhenti sebelum tgl 6 jam 00:00)
+      document.getElementById('early').classList.add('active');
+    } 
+    else if (now >= createDate(6) && now < createDate(13)) {
+      // 6 - 12 Feb
+      document.getElementById('main').classList.add('active');
+    } 
+    else if (now >= createDate(13) && now < createDate(18)) {
+      // 13 - 17 Feb
+      document.getElementById('last').classList.add('active');
+    }
+
+
+
+
+
+  </script>
+
+</body>
+</html>
